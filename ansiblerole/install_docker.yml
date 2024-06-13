@@ -1,7 +1,0 @@
----
-# install_docker.yml
-
-- hosts: all
-  become: yes
-  roles:
-    - docker

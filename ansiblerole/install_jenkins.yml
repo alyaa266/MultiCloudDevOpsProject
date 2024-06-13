@@ -1,8 +1,0 @@
----
-# install_jenkins.yml
-
-- hosts: all
-  become: yes
-  roles:
-    - jenkins
-

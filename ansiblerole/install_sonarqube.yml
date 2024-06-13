@@ -1,8 +1,0 @@
----
-# install_sonareqube.yml
-
-- hosts: all
-  become: yes
-  roles:
-    - sonarqube
-
