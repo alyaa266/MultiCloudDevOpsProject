@@ -1,0 +1,4 @@
+ - name: Install Git on Debian-based systems
+   apt:
+    name: git
+    state: present
