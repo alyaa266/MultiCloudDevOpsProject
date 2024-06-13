@@ -1,0 +1,7 @@
+---
+# install_openshift.yml
+
+- hosts: all
+  become: yes
+  roles:
+    - openshift
