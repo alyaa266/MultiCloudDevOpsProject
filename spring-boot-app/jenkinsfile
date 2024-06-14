@@ -5,7 +5,6 @@ pipeline {
         dockerHubCredentialsID	    = 'DockerHub'  		    			// DockerHub credentials ID.
         imageName   		    = 'alyaabadr/spring-app'     			// DockerHub repo/image name.
 	
-
         }
     stages {
         
@@ -48,6 +47,7 @@ pipeline {
         }
 
 
+}
     post {
         success {
             echo "${JOB_NAME}-${BUILD_NUMBER} pipeline succeeded"
@@ -57,4 +57,4 @@ pipeline {
         }
     }
 }
-}
+
