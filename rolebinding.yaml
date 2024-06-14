@@ -10,7 +10,7 @@ subjects:
   namespace: alyaabadr
 roleRef:
   kind: Role
-  name: project-role
+  name: admin-role
   apiGroup: rbac.authorization.k8s.io
 
 
