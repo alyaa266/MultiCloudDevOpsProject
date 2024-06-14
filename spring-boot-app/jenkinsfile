@@ -4,6 +4,9 @@ pipeline {
     environment {
         dockerHubCredentialsID	    = 'DockerHub'  		    			// DockerHub credentials ID.
         imageName   		    = 'alyaabadr/spring-app'     			// DockerHub repo/image name.
+        openshiftCredentialsID	    = 'Openshift'		    		        // service account token credentials ID
+	openshiftClusterURL	    = 'https://api.ocp-training.ivolve-test.com:6443'   // OpenShift Cluser URL.
+        openshiftProject 	    = 'alyaabadr'                                       // OpenShift project name.
 	
         }
     stages {
@@ -47,6 +50,15 @@ pipeline {
             }
         }
 
+    stage('Deploy on OpenShift Cluster') {
+            steps {
+                script { 
+                	dir('openshift') {
+				deployOnOpenShift("${openshiftCredentialsID}", "${openshiftClusterURL}", "${openshiftProject}", "${imageName}")
+                    	}
+                }
+            }
+        }
 
 }
     post {
