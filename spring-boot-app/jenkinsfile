@@ -17,7 +17,7 @@ pipeline {
         stage('Run Unit Test') {
             steps {
                 script {
-                	dir('App') {
+                	dir('spring-boot-app') {
                 		UnitTest()
             		}
         	}
@@ -30,7 +30,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                 	dir('App') {
+                 	dir('spring-boot-app') {
                  		buildDockerImage("${imageName}")
                     	}
                 }
@@ -39,7 +39,7 @@ pipeline {
         stage('push Docker Image') {
             steps {
                 script {
-                 	dir('App') {
+                 	dir('spring-boot-app') {
                  		pushDockerImage("${dockerHubCredentialsID}", "${imageName}")
                     	}
                 }
