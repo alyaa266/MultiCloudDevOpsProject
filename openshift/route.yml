@@ -2,6 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: spring-app-route
+  namespace: alyaabadr
 spec:
   to:
     kind: Service
