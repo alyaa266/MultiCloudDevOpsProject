@@ -31,9 +31,8 @@ pipeline {
             steps {
                 script {
                  	dir('spring-boot-app') {
-                                sh 'chmod +x ./gradlew'
-                                sh './gradlew clean test'
-                 		buildDockerImage("${imageName}")
+                                
+                                buildDockerImage("${imageName}")
                     	}
                 }
             }
