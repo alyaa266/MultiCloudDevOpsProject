@@ -1,0 +1,11 @@
+---
+# install_roles.yml
+
+- hosts: all
+  become: yes
+  roles:
+    - docker
+    - jenkins
+    - sonarqube
+    - openshift
+    - git

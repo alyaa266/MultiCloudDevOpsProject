@@ -1,0 +1,2 @@
+[defaults]
+ec2-54-196-120-60.compute-1.amazonaws.com ansible_user=ubuntu

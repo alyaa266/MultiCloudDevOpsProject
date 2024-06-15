@@ -1,0 +1,82 @@
+@Library('Shared-Library')_
+pipeline {
+    agent any
+    environment {
+        dockerHubCredentialsID	    = 'DockerHub'  		    			// DockerHub credentials ID.
+        imageName   		    = 'alyaabadr/spring-app'     			// DockerHub repo/image name.
+        openshiftCredentialsID	    = 'Openshift'		    		        // service account token credentials ID
+	openshiftClusterURL	    = 'https://api.ocp-training.ivolve-test.com:6443'   // OpenShift Cluser URL.
+        openshiftProject 	    = 'alyaabadr'                                       // OpenShift project name.
+	
+        }
+    stages {
+        
+        stage('Repo Checkout') {
+            steps {
+			echo "$GIT_BRANCH"
+            }
+        }
+
+        stage('Run Unit Test') {
+            steps {
+                script {
+                	dir('spring-boot-app') {
+                		UnitTest()
+            		}
+        	}
+    	    }
+	}
+
+	   stage('Run SonarQube Test') {
+            steps {
+                script {
+                    	dir('spring-boot-app') {
+                    		SonarQubeTest()
+                    	}
+                }
+            }
+        }
+	
+       
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                 	dir('spring-boot-app') {
+                                
+                                buildDockerImage("${imageName}")
+                    	}
+                }
+            }
+        }
+        stage('push Docker Image') {
+            steps {
+                script {
+                 	dir('spring-boot-app') {
+                 		pushDockerImage("${dockerHubCredentialsID}", "${imageName}")
+                    	}
+                }
+            }
+        }
+
+    stage('Deploy on OpenShift Cluster') {
+            steps {
+                script { 
+                	dir('openshift') {
+				deployOnOpenShift("${openshiftCredentialsID}", "${openshiftClusterURL}", "${openshiftProject}", "${imageName}")
+                    	}
+                }
+            }
+        }
+
+}
+    post {
+        success {
+            echo "${JOB_NAME}-${BUILD_NUMBER} pipeline succeeded"
+        }
+        failure {
+            echo "${JOB_NAME}-${BUILD_NUMBER} pipeline failed"
+        }
+    }
+}
+

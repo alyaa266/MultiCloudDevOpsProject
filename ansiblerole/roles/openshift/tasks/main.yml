@@ -1,0 +1,16 @@
+- name: download curl 
+  apt:
+   name: curl 
+   state: present
+
+- name: Install OpenShift client
+  shell: |
+    curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/oc/latest/linux/oc.tar.gz
+    tar -xvf oc.tar.gz
+    sudo mv oc /usr/local/bin/
+    
+  args:
+   creates: /usr/local/bin/oc
+  become: yes
+
+
