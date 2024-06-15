@@ -47,15 +47,62 @@ This repository contains the infrastructure provisioning, configuration manageme
 ![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/3869b741-58c5-478d-be05-5ff9597a9087)
 
 ![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/2b46b1bb-a9dc-4007-9d99-fa75a5a8108d)
+
 ![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/8e850632-d6c3-42b5-b6b0-3ab175689a44)
+
 ![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/f39c0308-8e4f-4061-a66f-a6c4e9a3b33e)
+
 ![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/7347ce27-d925-4d41-8d36-54b2b93d8e4a)
 
+## Third is Docker !
 
+### There is nothing much to do with Docker it was installed and configured with Ansible 
+### we only need the dockerhub credentials for jenkins integration ! 
 
+## Then comes Openshift ! 
 
+### we need to create the following : Service account , Role , Role-binding , Secret . in order to optain the token necessary for jenkins integration ! 
 
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/be072fe5-c02c-4136-8405-e58027d67c3f)
 
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/9d4a4b63-379f-4209-b565-675f7f927d35)
 
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/06782039-6dc2-4f7b-b9f1-61fa0a588441)
+
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/30955fca-fc33-4ae1-9557-192fc462774e)
+### we then use the secret to get the token !
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/745a239b-0d03-4405-aa01-086dfdac52f0)
+
+## Finally we're ready for jenkins ! 
+### we login to jenkins and install the required plugins Called Sonarqube scanner 
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/c9c8fd01-a1d4-44b3-a181-74f561245f85)
+
+### we then set up credentials ! 
+
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/82a1d356-00ed-4d62-aa86-53a565b85744)
+
+### we need 4 credentials in total ! 
+#### - DockerHub is used to push the image 
+#### - Openshift is used to sign in the cluster 
+#### - Sonarqube is used to connect to sonarqube server 
+#### - github is used to connect to github and pull the app
+
+### we then set up shared library and create the pipeline !
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/b4feb66f-c9f1-4167-8304-79c01f475b84)
+
+### Finally we run the pipeline , we hopefully se a success like this ! 
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/aa5b88ad-4038-445f-98ff-5c1e159bd8d1)
+
+### checking the sonarqube server for the code review
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/4cfc587c-8707-4a8b-b92e-38e66f304c1b)
+
+### checking the OC cluster for the app
+
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/6a607ae6-afeb-4e0b-b335-ebe1deaaf69c)
+
+### accessing the app
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/9f0590fe-2cc0-4912-8ed9-55d125cdb1ce)
+
+# And that's it ! the project is done and the app is reviewd and deployed !
 
 
