@@ -21,7 +21,8 @@ This repository contains the infrastructure provisioning, configuration manageme
 ![559e1370-f34f-4c66-b0fe-e754e5f4962c](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/04a9ce21-030a-461e-8b6e-b20b831499b1)
 ![6266aa35-a634-4e7d-af24-b072a9638988](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/0871cfaa-c176-4bb3-a6c6-80fdc21660b1)
 
-### and after the first apply we un-comment the following backend section to enable remote backend and re-apply
+### and after the first apply remote backend
+![image](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/a8750da1-ecf1-4524-8791-f68e6d7e94c5)
 ![0a0af3ff-3f59-48e6-b95a-cc3ed25e795b](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/08682887-9a6b-4f4f-a2d0-14e5d5590274)
 ![33c1f9da-7c84-477a-b4e9-0edcf366fa5d](https://github.com/alyaa266/MultiCloudDevOpsProject/assets/84872262/1bdabeaf-f869-4ddb-b4de-78863bde92aa)
 
