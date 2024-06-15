@@ -3,20 +3,20 @@ provider "aws" {
   
 }
 
-resource "tls_private_key" "example" {
+resource "tls_private_key" "ivolve" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
 resource "local_file" "private_key" {
-  content        = tls_private_key.example.private_key_pem
+  content        = tls_private_key.ivolve.private_key_pem
   filename       = "${path.module}/my-key-pair.pem"
   file_permission = "0600"
 }
 
 resource "aws_key_pair" "generated_key" {
-  key_name   = "my-generated-key"
-  public_key = tls_private_key.example.public_key_openssh
+  key_name   = "my-key-pair"
+  public_key = tls_private_key.ivolve.public_key_openssh
 }
 
 module "vpc" {
