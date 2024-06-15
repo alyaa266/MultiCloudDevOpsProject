@@ -5,7 +5,7 @@ resource "aws_instance" "app" {
   subnet_id                   = element(var.subnet_ids, count.index)
   associate_public_ip_address = true
   security_groups             = var.security_group_ids
-  key_name                    = var.key_name
+  key_name                    = "my-key-pair"
 
   tags = {
     Name = "app-instance-${count.index}"
